@@ -24,7 +24,7 @@ class CalendarResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-m-calendar-days';
     protected static ?string $navigationLabel = '預約';
     protected static ?string $modelLabel = '預約';
-
+    protected static ?int $navigationSort = 1;
 
     public static function form(Form $form): Form
     {
@@ -52,6 +52,7 @@ class CalendarResource extends Resource
                     ->label('備註文字色')
                     ->default('#ffffff'), // 設置預設顏色
                 Forms\Components\Select::make('booker_id')
+                    ->label('預約者')
                     ->relationship('booker', 'name')
                     ->searchable()
                     ->preload()

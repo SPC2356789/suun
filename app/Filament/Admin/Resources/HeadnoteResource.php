@@ -9,10 +9,13 @@ use App\Models\Headnote;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
+use Filament\Support\Assets\Js;
+use Filament\Support\Facades\FilamentAsset;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\HtmlString;
 //use Filament\Tables\Columns\Layout\Grid;
 
 use Filament\Support\Enums\FontWeight;
@@ -21,6 +24,7 @@ use Filament\Tables\Columns\Layout\Split;
 use Filament\Tables\Columns\Layout\Stack;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
+
 class HeadnoteResource extends Resource
 {
     protected static ?string $model = Headnote::class;
@@ -28,9 +32,12 @@ class HeadnoteResource extends Resource
     protected static ?string $navigationLabel = '標頭備註';
     protected static ?string $modelLabel = '標頭備註';
     protected static ?string $navigationIcon = 'gmdi-edit-note-o';
-
+    protected static ?int $navigationSort = 6;
     public static function form(Form $form): Form
     {
+        FilamentAsset::register([
+            Js::make('jquery', 'https://code.jquery.com/jquery-3.6.4.min.js'),
+        ]);
         return $form
             ->schema([
                 TinyMCE::make('note')
@@ -40,13 +47,14 @@ class HeadnoteResource extends Resource
 
     public static function table(Table $table): Table
     {
-
+        FilamentAsset::register([
+            Js::make('jquery', 'https://code.jquery.com/jquery-3.6.4.min.js'),
+        ]);
         return $table
-
             ->columns([
                 Panel::make([
                     Split::make([
-                        TextColumn::make('note')
+                        TextColumn::make('note')->html(),
                     ])->from('md'),
                 ])->collapsed(false)
 //                Tables\Columns\TextColumn::make('note'),

@@ -19,7 +19,9 @@ class BookerResource extends Resource
     protected static ?string $model = Booker::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-user-group';
-
+    protected static ?string $navigationLabel = '預約者管理';
+    protected static ?string $modelLabel = '預約者管理';
+    protected static ?int $navigationSort = 3;
     public static function form(Form $form): Form
     {
         $select_city = zipcodes::distinct()->pluck('city', 'city')->toArray();

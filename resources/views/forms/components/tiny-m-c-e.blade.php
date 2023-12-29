@@ -1,3 +1,5 @@
+
+
 <script src="https://cdn.tiny.cloud/1/0fh3tmvc7ou55z7q5fsrku4lak03u4jryuk5q9zwwldcmwpr/tinymce/6/tinymce.min.js"
         referrerpolicy="origin"></script>
 <?php $a = str_replace('.', '', $getStatePath()); ?>

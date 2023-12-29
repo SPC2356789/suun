@@ -20,11 +20,22 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Illuminate\Support\Facades\Blade;
 use Filament\Navigation\MenuItem;
 
+use Filament\Navigation\NavigationBuilder;
+use Filament\Navigation\NavigationItem;
+use Filament\Pages\Dashboard;
+
 class AdminPanelProvider extends PanelProvider
 {
+
     public function panel(Panel $panel): Panel
     {
         return $panel
+            ->navigationItems([
+                NavigationItem::make('前台')
+                    ->url('http://34.80.237.158/', shouldOpenInNewTab: true)
+                    ->icon('heroicon-o-presentation-chart-line')
+                    ->sort(0.1),
+            ])
             ->id('admin')
             ->path('admin')
             ->colors([
@@ -61,10 +72,11 @@ class AdminPanelProvider extends PanelProvider
 //            ->authGuard('web')
 //            ->authPasswordBroker('users')
             ->login()
-            ->registration()
-            ->passwordReset()
+//            ->registration()
+//            ->passwordReset()
             ->emailVerification()
             ->profile()
+
 
             ;
 

@@ -21,16 +21,20 @@ Route::group(['prefix' => '/', 'namespace' => '\App\Http\Controllers'], function
     });
 
 });
+Route::get('user/{id}', function($id)
+{
+    return 'User '.$id;
+});
 use Filament\Http\Controllers\Auth\LoginController;
 
 
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
-//    Route::get('/dashboard', function () {
-//        return view('dashboard');
-//    })->name('dashboard');
-});
+//Route::middleware([
+//    'auth:sanctum',
+//    config('jetstream.auth_session'),
+//    'verified',
+//])->group(function () {
+////    Route::get('/dashboard', function () {
+////        return view('dashboard');
+////    })->name('dashboard');
+//});

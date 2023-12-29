@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('owners', function (Blueprint $table) {
-            $table->id();
-            $table->string('email');
-            $table->string('name');
-            $table->string('phone');
-            $table->timestamps();
+        Schema::table('posts', function (Blueprint $table) {
+            $table->string('orderby')->nullable();
         });
     }
 
@@ -25,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('owners');
+        Schema::table('posts', function (Blueprint $table) {
+            //
+        });
     }
 };

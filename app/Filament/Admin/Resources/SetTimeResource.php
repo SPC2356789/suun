@@ -18,8 +18,9 @@ class SetTimeResource extends Resource
 {
     protected static ?string $model = SetTime::class;
     protected static ?string $navigationLabel = '時段設定';
+    protected static ?string $modelLabel = '時段設定';
     protected static ?string $navigationIcon = 'heroicon-o-clock';
-
+    protected static ?int $navigationSort = 5;
     public static function form(Form $form): Form
     {
 
@@ -27,10 +28,10 @@ class SetTimeResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('start_time')
                     ->type('time')
-                    ->label('Start Time'),
+                    ->label('開始時間'),
                 Forms\Components\TextInput::make('end_time')
                     ->type('time')
-                    ->label('End Time'),
+                    ->label('結束時間'),
             ])
             ->columns(5); // 設置為兩列;
 
@@ -42,9 +43,12 @@ class SetTimeResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('id')
+                    ->label('時段')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('start_time'),
-                Tables\Columns\TextColumn::make('end_time'),
+                Tables\Columns\TextColumn::make('start_time')
+                    ->label('開始時間'),
+                Tables\Columns\TextColumn::make('end_time')
+                    ->label('結束時間'),
             ])
             ->filters([
                 //
