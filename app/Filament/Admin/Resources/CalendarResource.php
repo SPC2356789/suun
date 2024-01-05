@@ -82,6 +82,7 @@ class CalendarResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->defaultSort('date', 'desc')
             ->columns([
                 Tables\Columns\TextColumn::make('date')
                     ->label('預約日')
@@ -95,7 +96,6 @@ class CalendarResource extends Resource
                 Tables\Columns\TextColumn::make('text')
                     ->label('時段備註')
                     ->searchable(),
-
             ])
             ->filters([
                 //
@@ -108,7 +108,9 @@ class CalendarResource extends Resource
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
+
             ]);
+
     }
 
     public static function getRelations(): array

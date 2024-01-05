@@ -72,6 +72,8 @@ class ArticleResource extends Resource
             Js::make('jquery', 'https://code.jquery.com/jquery-3.6.4.min.js'),
         ]);
         return $table
+            ->reorderable('orderby')
+            ->defaultSort('orderby', 'asc')
             ->columns([
                 Split::make([
                     Tables\Columns\TextColumn::make('title')

@@ -55,11 +55,11 @@
 
 
 <!-- 發文 Start -->
-<div class="container-xxl py-5">
+<div class="container-xxl py-1">
     <div class="container">
         <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
             {{--            <h6 class="text-primary">最新消息</h6>--}}
-            <h1 class="mb-4">最新資訊</h1>
+            <h1 class="mb-1">最新資訊</h1>
         </div>
         <div class="row g-4 portfolio-container wow fadeInUp justify-content-center" data-wow-delay="0.5s">
             @foreach($pPost as $Post)
@@ -82,6 +82,15 @@
 </html>
 
 <style>
+    .content{
+        padding: 3rem 0 !important;
+    }
+
+
+    .fc-toolbar.fc-header-toolbar {
+    margin-left: 20px ;
+    margin-right: 20px ;
+    }
 
     .post_image {
         width: 100%;

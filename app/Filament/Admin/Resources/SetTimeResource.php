@@ -41,6 +41,7 @@ class SetTimeResource extends Resource
     {
 
         return $table
+//            ->reorderable('id')
             ->columns([
                 Tables\Columns\TextColumn::make('id')
                     ->label('時段')

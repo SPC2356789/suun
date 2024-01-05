@@ -70,6 +70,7 @@ class HolidayResource extends Resource
             '2xl' => 5,
         ]);
         return $table
+            ->defaultSort('date', 'desc')
             ->columns([
                 Split::make([
                     Tables\Columns\TextColumn::make('date')
