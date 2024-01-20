@@ -1,4 +1,6 @@
-
+.fc-event{
+    border: none!important;
+}
 .post_detail:hover {
     /*滑鼠光標轉換*/
     cursor: pointer;

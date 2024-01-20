@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
+    <meta name="google-site-verification" content="rG1PyYzDUE8rwHK3EvqgEaOt38GDi7gndeKLdQr0W_E"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {!! seo() !!}
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
-
+    <title>滑肌師工作室</title>
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
           integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-
     <!-- 从 CDN 引入 wow.js -->
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+
 
     <link rel="stylesheet" href="{{ asset('main/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('main/css/style.css') }}">
@@ -47,7 +50,7 @@
     </div>
 </div>
 
-<x-head.tinymce-config/>
+{{--<x-head.tinymce-config/>--}}
 {{--<script src='path/to/fullcalendar/locales/zh-tw.js'></script>--}}
 
 
@@ -78,18 +81,48 @@
         </div>
     </div>
 </div>
+<div class="container-fluid bg-dark text-body footer mt-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container py-4">
+        <div class="row g-5">
+            <div class="col-12 text-center ">
+                <h5 class="text-white mb-4">滑肌師工作室-聯絡資訊</h5>
+                <div class="">
+                    <a class="btn btn-square btn-outline-light btn-social" target="_blank"
+                       href="https://x.com/ZrAi970662068?t=4bjlltMUWh4hr0FUcP3XMw&s=06"><i
+                            class="fab fa-twitter"></i></a>
+                    {{--                    <a class="btn btn-square btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>--}}
+                    <a class="btn btn-square btn-outline-light btn-social" target="_blank" href="https://Lin.ee/r75pCdi"><img
+                            src="{{ asset("storage") }}/LINE_pic.png"
+                            style="justify-items: center; width: 16px;height: 16px ; filter: grayscale(100%);"></a>
+                    <a class="btn btn-square btn-outline-light btn-social" target="_blank"
+                       href="https://www.instagram.com/yushun1991?igsh=N2FkaXJybmk5eDA="><i
+                            class="fab fa-instagram"></i></a>
+                    {{--                    <a class="btn btn-square btn-outline-light btn-social" href=""><i--}}
+                    {{--                            class="fab fa-linkedin-in"></i></a>--}}
+                </div>
+                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i><a>106台北市大安區信義路二段198巷6號,台灣</a></p>
+                {{--                <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>--}}
+                {{--                <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>--}}
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.0303038663565!2d121.52781907595623!3d25.03304563832893!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a9823d91e5f1%3A0x492ccfd3c6d857b8!2zMTA25Y-w5YyX5biC5aSn5a6J5Y2A5L-h576p6Lev5LqM5q61MTk45be3NuiZnw!5e0!3m2!1szh-TW!2stw!4v1705572689649!5m2!1szh-TW!2stw"
+                    width="300" height="225" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
 
 <style>
-    .content{
+    .content {
         padding: 3rem 0 !important;
     }
 
 
     .fc-toolbar.fc-header-toolbar {
-    margin-left: 20px ;
-    margin-right: 20px ;
+        margin-left: 20px;
+        margin-right: 20px;
     }
 
     .post_image {
@@ -245,7 +278,7 @@
                 var concatenatedString = cleanedData + time;
                 var textValue = (ptime_json[concatenatedString] ? ptime_json[concatenatedString].text : '-');
                 var data_color = ptime_json[concatenatedString] ? 'background-color:' + ptime_json[concatenatedString].bcolor + '; color:' + ptime_json[concatenatedString].tcolor : '';
-                return `<td style=" ${data_color}" data="${data}">${textValue ?? ' '}</td>`;
+                return `<td class="td-ass" ><div class="circle-td" style=" ${data_color}" data="${data}">${textValue ?? ' '}</div></td>`;
             }).get().join('')}
                             </tr>
                         </tbody>
@@ -295,4 +328,20 @@
 
 
 </script>
+<style>
+    {{--    td的樣式--}}
+    .td-ass {
 
+    }
+
+    {{--    td裡的樣式--}}
+    .circle-td {
+        padding: 0px 5px 0px 5px;
+        /*margin-left: 38%;*/
+        /*background-color: #777888;*/
+        /*color: #fff; !* 設置文字顏色為白色 *!*/
+        border-radius: 10px; /* 設置半徑為50%，使其呈現圓形 */
+        /*width: auto; !* 指定元素寬度 *!*/
+        height: auto; /* 指定元素高度 */
+    }
+</style>

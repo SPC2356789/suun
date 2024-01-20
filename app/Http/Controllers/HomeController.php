@@ -9,6 +9,8 @@ use App\Models\Holiday;
 use App\Models\Headnote;
 use App\Models\Visit;
 use Illuminate\Http\Request;
+use RalphJSmit\Laravel\SEO\Support\HasSEO;
+
 
 class HomeController extends Controller
 {
@@ -51,20 +53,22 @@ class HomeController extends Controller
         $holidayAry = array();
         foreach ($holidayArray as $date => $timeRanges) {
 //            \gl::debug($timeRanges);
-            if (count($timeRanges) !== $count_time) {
-                foreach ($timeRanges as $tk => $t) {
-                    $did = str_replace(['-', ':'], '', $date . $t);
-                    $HA[] = ['text' => ' ', 'bcolor' => '#777888', 'tcolor' => '#ffffff', 'did' => $did];
-                }
-            } else if (!in_array($date, $Reserve)) {
+//            if (count($timeRanges) !== $count_time) {
+            foreach ($timeRanges as $tk => $t) {
+                $did = str_replace(['-', ':'], '', $date . $t);
+                $HA[] = ['text' => '-', 'bcolor' => '#777888', 'tcolor' => '#777888', 'did' => $did];
+            }
+//            } else
+            if (!in_array($date, $Reserve)) {
+
                 $holidayAry[$date] = $timeRanges;
             }
         }
 //        \gl::debug($holidayAry);
-        $pReserve_mag = array_merge($Calendar_Reserve, $HA);
+        $pReserve_mag = array_merge($HA, $Calendar_Reserve);
         $pReserve = $this->reKey($pReserve_mag, 'did');
 
-//        \gl::debug($Reserve);
+//        \gl::debug($pReserve);
 //        \gl::debug($note);
 //        \gl::debug($Reserve);
 

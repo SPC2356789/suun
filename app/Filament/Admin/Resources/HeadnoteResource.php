@@ -4,7 +4,7 @@ namespace App\Filament\Admin\Resources;
 
 use App\Filament\Admin\Resources\HeadnoteResource\Pages;
 use App\Filament\Admin\Resources\HeadnoteResource\RelationManagers;
-use App\Forms\Components\TinyMCE;
+use AmidEsfahani\FilamentTinyEditor\TinyEditor;
 use App\Models\Headnote;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -35,21 +35,24 @@ class HeadnoteResource extends Resource
     protected static ?int $navigationSort = 6;
     public static function form(Form $form): Form
     {
-        FilamentAsset::register([
-            Js::make('jquery', 'https://code.jquery.com/jquery-3.6.4.min.js'),
-        ]);
+
         return $form
             ->schema([
-                TinyMCE::make('note')
-                    ->label('內容'),
+                TinyEditor::make('note')
+                    ->fileAttachmentsDisk('public')
+                    ->fileAttachmentsVisibility('public')
+                    ->fileAttachmentsDirectory('uploads')
+                    ->profile('default|simple|full|minimal|none|custom')
+                    ->rtl() // Set RTL or use ->direction('auto|rtl|ltr')
+                    ->columnSpan('full')
+                    ->label('內容')
+                    ->required(),
             ]);
     }
 
     public static function table(Table $table): Table
     {
-        FilamentAsset::register([
-            Js::make('jquery', 'https://code.jquery.com/jquery-3.6.4.min.js'),
-        ]);
+
         return $table
             ->columns([
                 Panel::make([

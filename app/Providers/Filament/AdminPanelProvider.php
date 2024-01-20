@@ -32,7 +32,7 @@ class AdminPanelProvider extends PanelProvider
         return $panel
             ->navigationItems([
                 NavigationItem::make('前台')
-                    ->url('http://34.80.237.158/', shouldOpenInNewTab: true)
+                    ->url('/', shouldOpenInNewTab: true)
                     ->icon('heroicon-o-presentation-chart-line')
                     ->sort(0.1),
             ])

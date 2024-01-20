@@ -4,8 +4,10 @@ namespace App\Filament\Admin\Resources\Post;
 
 use App\Filament\Admin\Resources\Post\ArticleResource\Pages;
 use App\Filament\Admin\Resources\Post\ArticleResource\RelationManagers;
-use App\Forms\Components\ColorPicker;
-use App\Forms\Components\TinyMCE;
+use AmidEsfahani\FilamentTinyEditor\TinyEditor;
+
+
+
 use Filament\Tables\Columns\Layout\Panel;
 use Filament\Tables\Columns\Layout\Split;
 use Filament\Tables\Columns\TextColumn;
@@ -35,9 +37,7 @@ class ArticleResource extends Resource
     protected static ?int $navigationSort = 4;
     public static function form(Form $form): Form
     {
-        FilamentAsset::register([
-            Js::make('jquery', 'https://code.jquery.com/jquery-3.6.4.min.js'),
-        ]);
+
         return $form
             ->schema([
                 Forms\Components\TextInput::make('title')
@@ -55,11 +55,21 @@ class ArticleResource extends Resource
 
                 Forms\Components\FileUpload::make('image_path')
                     ->label('圖片上傳')
+                    ->image()
                     ->storeFileNamesIn('original_image_names')
                     ->imageEditor(),
-                TinyMCE::make('content')
-//                    ->required()
-                    ->label('內容'),
+                TinyEditor::make('content')
+                    ->fileAttachmentsDisk('public')
+                    ->fileAttachmentsVisibility('public')
+                    ->fileAttachmentsDirectory('uploads')
+                    ->profile('default|simple|full|minimal|none|custom')
+                    ->rtl() // Set RTL or use ->direction('auto|rtl|ltr')
+                    ->columnSpan('full')
+                    ->label('內容')
+                    ->required(),
+//                TinyMCE::make('content')
+////                    ->required()
+
             ])
 //            ->statePath('data')
             ->columns(1); // 設置為兩列;
@@ -68,9 +78,6 @@ class ArticleResource extends Resource
 
     public static function table(Table $table): Table
     {
-        FilamentAsset::register([
-            Js::make('jquery', 'https://code.jquery.com/jquery-3.6.4.min.js'),
-        ]);
         return $table
             ->reorderable('orderby')
             ->defaultSort('orderby', 'asc')
