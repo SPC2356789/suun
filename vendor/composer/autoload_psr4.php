@@ -57,6 +57,7 @@ return array(
     'RalphJSmit\\Laravel\\SEO\\' => array($vendorDir . '/ralphjsmit/laravel-seo/src'),
     'RalphJSmit\\Helpers\\Database\\Factories\\' => array($vendorDir . '/ralphjsmit/laravel-helpers/database/factories'),
     'RalphJSmit\\Helpers\\' => array($vendorDir . '/ralphjsmit/laravel-helpers/src'),
+    'RalphJSmit\\Filament\\SEO\\' => array($vendorDir . '/ralphjsmit/laravel-filament-seo/src'),
     'Psy\\' => array($vendorDir . '/psy/psysh/src'),
     'Psr\\SimpleCache\\' => array($vendorDir . '/psr/simple-cache/src'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log/src'),

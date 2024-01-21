@@ -175,6 +175,16 @@
       0 => 'Termwind\\Laravel\\TermwindServiceProvider',
     ),
   ),
+  'ralphjsmit/laravel-filament-seo' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'RalphJSmit\\Filament\\SEO\\FilamentSEOServiceProvider',
+    ),
+    'aliases' => 
+    array (
+    ),
+  ),
   'ralphjsmit/laravel-helpers' => 
   array (
     'providers' => 

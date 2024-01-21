@@ -37,20 +37,20 @@ class ComposerStaticInita3177493fd92166344bbc9e75de9b7ef
         '9720327d09ed9a4ba00c9b5071b71c7d' => __DIR__ . '/..' . '/danharrin/date-format-converter/src/standards.php',
         '2ad94ea6f6f6013119e9abcf4e302a08' => __DIR__ . '/..' . '/filament/forms/src/helpers.php',
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
-        '3bd81c9b8fcc150b69d8b63b4d2ccf23' => __DIR__ . '/..' . '/spatie/flare-client-php/src/helpers.php',
         'b69d5f1f95cd1ed438c038b6cbcc45b5' => __DIR__ . '/..' . '/filament/notifications/src/Testing/Autoload.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
-        '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
-        '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
+        '3bd81c9b8fcc150b69d8b63b4d2ccf23' => __DIR__ . '/..' . '/spatie/flare-client-php/src/helpers.php',
         'b12d97608fcbb3ed178515c7d4f4e63a' => __DIR__ . '/..' . '/ralphjsmit/laravel-helpers/src/Laravel/Support/helpers.php',
         '83ec15003b087ac80c77e13e1ef6e042' => __DIR__ . '/..' . '/ralphjsmit/laravel-helpers/src/helpers.php',
         '89e9938b64b06cc502d7ceca69a380fe' => __DIR__ . '/..' . '/filament/filament/src/global_helpers.php',
         'ebb446bb6d02e998480945fbbb73dc64' => __DIR__ . '/..' . '/filament/filament/src/helpers.php',
+        '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
+        '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
+        '4da227543b849bd0e7907fc872ef25f9' => __DIR__ . '/..' . '/ralphjsmit/laravel-seo/src/helpers.php',
         'c72349b1fe8d0deeedd3a52e8aa814d8' => __DIR__ . '/..' . '/mockery/mockery/library/helpers.php',
         'ce9671a430e4846b44e1c68c7611f9f5' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery.php',
         'a1cfe24d14977df6878b9bf804af2d1c' => __DIR__ . '/..' . '/nunomaduro/collision/src/Adapters/Phpunit/Autoload.php',
         'ec07570ca5a812141189b1fa81503674' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert/Functions.php',
-        '4da227543b849bd0e7907fc872ef25f9' => __DIR__ . '/..' . '/ralphjsmit/laravel-seo/src/helpers.php',
         '320163ac6b93aebe3dc25b60a0533d56' => __DIR__ . '/..' . '/spatie/laravel-ignition/src/helpers.php',
         'b4e3f29b106af37a2bb239f73cdf68c7' => __DIR__ . '/../..' . '/app/helpers.php',
     );
@@ -121,6 +121,7 @@ class ComposerStaticInita3177493fd92166344bbc9e75de9b7ef
             'RalphJSmit\\Laravel\\SEO\\' => 23,
             'RalphJSmit\\Helpers\\Database\\Factories\\' => 38,
             'RalphJSmit\\Helpers\\' => 19,
+            'RalphJSmit\\Filament\\SEO\\' => 24,
         ),
         'P' => 
         array (
@@ -450,6 +451,10 @@ class ComposerStaticInita3177493fd92166344bbc9e75de9b7ef
         'RalphJSmit\\Helpers\\' => 
         array (
             0 => __DIR__ . '/..' . '/ralphjsmit/laravel-helpers/src',
+        ),
+        'RalphJSmit\\Filament\\SEO\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/ralphjsmit/laravel-filament-seo/src',
         ),
         'Psy\\' => 
         array (
@@ -7226,6 +7231,8 @@ class ComposerStaticInita3177493fd92166344bbc9e75de9b7ef
         'Psy\\VersionUpdater\\IntervalChecker' => __DIR__ . '/..' . '/psy/psysh/src/VersionUpdater/IntervalChecker.php',
         'Psy\\VersionUpdater\\NoopChecker' => __DIR__ . '/..' . '/psy/psysh/src/VersionUpdater/NoopChecker.php',
         'Psy\\VersionUpdater\\SelfUpdate' => __DIR__ . '/..' . '/psy/psysh/src/VersionUpdater/SelfUpdate.php',
+        'RalphJSmit\\Filament\\SEO\\FilamentSEOServiceProvider' => __DIR__ . '/..' . '/ralphjsmit/laravel-filament-seo/src/FilamentSEOServiceProvider.php',
+        'RalphJSmit\\Filament\\SEO\\SEO' => __DIR__ . '/..' . '/ralphjsmit/laravel-filament-seo/src/SEO.php',
         'RalphJSmit\\Helpers\\HelpersServiceProvider' => __DIR__ . '/..' . '/ralphjsmit/laravel-helpers/src/HelpersServiceProvider.php',
         'RalphJSmit\\Helpers\\Laravel\\Actions\\GuessFactoryAction' => __DIR__ . '/..' . '/ralphjsmit/laravel-helpers/src/Laravel/Actions/GuessFactoryAction.php',
         'RalphJSmit\\Helpers\\Laravel\\Concerns\\HasFactory' => __DIR__ . '/..' . '/ralphjsmit/laravel-helpers/src/Laravel/Concerns/HasFactory.php',

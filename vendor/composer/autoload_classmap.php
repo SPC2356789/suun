@@ -6451,6 +6451,8 @@ return array(
     'Psy\\VersionUpdater\\IntervalChecker' => $vendorDir . '/psy/psysh/src/VersionUpdater/IntervalChecker.php',
     'Psy\\VersionUpdater\\NoopChecker' => $vendorDir . '/psy/psysh/src/VersionUpdater/NoopChecker.php',
     'Psy\\VersionUpdater\\SelfUpdate' => $vendorDir . '/psy/psysh/src/VersionUpdater/SelfUpdate.php',
+    'RalphJSmit\\Filament\\SEO\\FilamentSEOServiceProvider' => $vendorDir . '/ralphjsmit/laravel-filament-seo/src/FilamentSEOServiceProvider.php',
+    'RalphJSmit\\Filament\\SEO\\SEO' => $vendorDir . '/ralphjsmit/laravel-filament-seo/src/SEO.php',
     'RalphJSmit\\Helpers\\HelpersServiceProvider' => $vendorDir . '/ralphjsmit/laravel-helpers/src/HelpersServiceProvider.php',
     'RalphJSmit\\Helpers\\Laravel\\Actions\\GuessFactoryAction' => $vendorDir . '/ralphjsmit/laravel-helpers/src/Laravel/Actions/GuessFactoryAction.php',
     'RalphJSmit\\Helpers\\Laravel\\Concerns\\HasFactory' => $vendorDir . '/ralphjsmit/laravel-helpers/src/Laravel/Concerns/HasFactory.php',
