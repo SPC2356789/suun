@@ -4,15 +4,18 @@ namespace App\Filament\Admin\Resources;
 
 use App\Filament\Admin\Resources\HeadnoteResource\Pages;
 use App\Filament\Admin\Resources\HeadnoteResource\RelationManagers;
-use App\Forms\Components\TinyMCE;
+use AmidEsfahani\FilamentTinyEditor\TinyEditor;
 use App\Models\Headnote;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
+use Filament\Support\Assets\Js;
+use Filament\Support\Facades\FilamentAsset;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\HtmlString;
 //use Filament\Tables\Columns\Layout\Grid;
 
 use Filament\Support\Enums\FontWeight;
@@ -21,6 +24,7 @@ use Filament\Tables\Columns\Layout\Split;
 use Filament\Tables\Columns\Layout\Stack;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
+
 class HeadnoteResource extends Resource
 {
     protected static ?string $model = Headnote::class;
@@ -28,13 +32,21 @@ class HeadnoteResource extends Resource
     protected static ?string $navigationLabel = '標頭備註';
     protected static ?string $modelLabel = '標頭備註';
     protected static ?string $navigationIcon = 'gmdi-edit-note-o';
-
+    protected static ?int $navigationSort = 6;
     public static function form(Form $form): Form
     {
+
         return $form
             ->schema([
-                TinyMCE::make('note')
-                    ->label('內容'),
+                TinyEditor::make('note')
+                    ->fileAttachmentsDisk('public')
+                    ->fileAttachmentsVisibility('public')
+                    ->fileAttachmentsDirectory('uploads')
+                    ->profile('default|simple|full|minimal|none|custom')
+                    ->rtl() // Set RTL or use ->direction('auto|rtl|ltr')
+                    ->columnSpan('full')
+                    ->label('內容')
+                    ->required(),
             ]);
     }
 
@@ -42,11 +54,10 @@ class HeadnoteResource extends Resource
     {
 
         return $table
-
             ->columns([
                 Panel::make([
                     Split::make([
-                        TextColumn::make('note')
+                        TextColumn::make('note')->html(),
                     ])->from('md'),
                 ])->collapsed(false)
 //                Tables\Columns\TextColumn::make('note'),

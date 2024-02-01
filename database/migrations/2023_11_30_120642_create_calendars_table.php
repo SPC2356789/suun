@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('calendars', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('booker_id')->constrained('bookers')->cascadeOnDelete();
-            $table->string('time');
-            $table->date('date');
-            $table->text('text');
-            $table->string('bcolor');
-            $table->string('tcolor');
+            $table->foreignId('booker_id')->nullable()->constrained('bookers')->cascadeOnDelete();
+            $table->string('time')->nullable();
+            $table->date('date')->nullable();
+            $table->text('text')->nullable();
+            $table->string('bcolor')->nullable();
+            $table->string('tcolor')->nullable();
             $table->timestamps();
         });
     }

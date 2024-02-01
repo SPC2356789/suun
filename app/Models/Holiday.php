@@ -11,5 +11,7 @@ class Holiday extends Model
     use SoftDeletes;
 
     protected $dates = ['deleted_at']; // 必須加這行才有軟刪除
-
+    protected $casts = [
+        'time_point' => 'array',
+    ];
 }

@@ -24,7 +24,7 @@ class CalendarResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-m-calendar-days';
     protected static ?string $navigationLabel = '預約';
     protected static ?string $modelLabel = '預約';
-
+    protected static ?int $navigationSort = 1;
 
     public static function form(Form $form): Form
     {
@@ -52,6 +52,7 @@ class CalendarResource extends Resource
                     ->label('備註文字色')
                     ->default('#ffffff'), // 設置預設顏色
                 Forms\Components\Select::make('booker_id')
+                    ->label('預約者')
                     ->relationship('booker', 'name')
                     ->searchable()
                     ->preload()
@@ -81,6 +82,7 @@ class CalendarResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->defaultSort('date', 'desc')
             ->columns([
                 Tables\Columns\TextColumn::make('date')
                     ->label('預約日')
@@ -94,7 +96,6 @@ class CalendarResource extends Resource
                 Tables\Columns\TextColumn::make('text')
                     ->label('時段備註')
                     ->searchable(),
-
             ])
             ->filters([
                 //
@@ -107,7 +108,9 @@ class CalendarResource extends Resource
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
+
             ]);
+
     }
 
     public static function getRelations(): array

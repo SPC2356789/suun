@@ -18,6 +18,7 @@ use Filament\Tables\Columns\Layout\Stack;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\Layout\Panel;
 use Filament\Tables\Columns\Layout\Split;
+use Filament\Forms\Components\CheckboxList;
 
 class HolidayResource extends Resource
 {
@@ -27,7 +28,7 @@ class HolidayResource extends Resource
     protected static ?string $navigationIcon = 'gmdi-holiday-village-o';
     protected static ?string $navigationLabel = '公休日';
     protected static ?string $modelLabel = '公休日';
-
+    protected static ?int $navigationSort = 2;
     public static function form(Form $form): Form
     {
 
@@ -39,6 +40,7 @@ class HolidayResource extends Resource
 
         $resultString = implode(',', $resultArray);
 //        \gl::debug($resultString);
+
         return $form
             ->schema([
                 Forms\Components\DatePicker::make('date')
@@ -46,12 +48,19 @@ class HolidayResource extends Resource
                     ->label('選擇日期')
                     ->format('Y-m-d') // 指定日期格式
                     ->default(now()), // 使用 now() 函數設置預設日期為今天
-                Forms\Components\TagsInput::make('time_point')
-                    ->separator(',')
-                    ->reorderable()
-                    ->suggestions($time_range)
-                    ->default($resultString)
+//                Forms\Components\TagsInput::make('time_point')
+//                    ->separator(',')
+//                    ->reorderable()
+//                    ->suggestions($time_range)
+//                    ->default($resultString)
+                CheckboxList::make('time_point')
+                    ->options($time_range)
+                    ->bulkToggleable()
+                    ->columns(3)
+                    ->gridDirection('row')
+
             ]);
+
     }
 
     public static function table(Table $table): Table
@@ -61,6 +70,7 @@ class HolidayResource extends Resource
             '2xl' => 5,
         ]);
         return $table
+            ->defaultSort('date', 'desc')
             ->columns([
                 Split::make([
                     Tables\Columns\TextColumn::make('date')
@@ -76,7 +86,7 @@ class HolidayResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-                    Tables\Actions\DeleteAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
